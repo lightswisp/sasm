@@ -187,8 +187,9 @@ def execute(program, is_parsed = false)
   end
 end
 
+# this is just a demo
 program = "
-  ; My first program
+; demo
 ; ecx -> base
 ; edx -> exponent
 ; eax -> result
@@ -206,4 +207,8 @@ call pow
 msg 'pow: ', eax
 end
 "
-execute(program)
+
+raise "please provide a file name!" unless ARGV[0]
+raise "file doesn't exist" unless File.exist?(ARGV[0])
+source = File.read(ARGV[0])
+execute(source)
