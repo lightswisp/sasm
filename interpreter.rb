@@ -34,8 +34,6 @@ def parse(program)
       next
     end
 
-    pp line
-
     # cleanup the line from comments and newlines
     line = line[0...line.index(";")].rstrip
     # this part might be used for future parsing of static data like strings 
@@ -63,7 +61,6 @@ def execute(program, is_parsed = false)
   else
     parsed_prog = parse(program)
   end
-  pp parsed_prog
   parsed_prog.each do |instruction|
     case instruction.mnemonic
       when "mov" 
